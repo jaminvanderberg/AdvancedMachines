@@ -21,6 +21,7 @@ public class StabilizerManager {
 
 	public static void init() {
 		FileHandler handler = new FileHandlerRecipe("stabilizer", ModConfig.general.defaultStabilizerEnergyCost, (recipe) -> {
+			if (ModConfig.doExclude("stabilizer", recipe.getRecipeId())) {	return;	}
 			manager.addRecipe(recipe);
 		}).setLimit(RecipeSection.INPUT, IngredientType.FLUID, 1).setLimit(RecipeSection.OUTPUT, IngredientType.ITEM, 1);
 		

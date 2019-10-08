@@ -21,6 +21,7 @@ public class PressManager {
 
 	public static void init() {
 		FileHandler handler = new FileHandlerRecipe("press", ModConfig.general.defaultPressEnergyCost, (recipe) -> {
+			if (ModConfig.doExclude("press", recipe.getRecipeId())) {	return;	}
 			manager.addRecipe(recipe);
 		}).setLimit(RecipeSection.INPUT, IngredientType.ITEM, 3).setLimit(RecipeSection.CATALYST, IngredientType.ITEM, 2)
 			.setLimit(RecipeSection.OUTPUT, IngredientType.ITEM, 1);

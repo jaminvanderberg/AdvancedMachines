@@ -157,7 +157,8 @@ public final class ModConfig {
 		
 		@Config.Comment({
 			"Exclude specific recipes by recipe id. Format is [type]:[recipe_id]",
-			"Recipe IDs can be found by setting 'showRecipeIds' to true and uing JEI."
+			"Recipe IDs can be found by setting 'showRecipeIds' to true and uing JEI.",
+			"Types are: furnace, grinder, alloy, purifier, press, melter, stabilizer, injector."
 		})
 		public String[] excludeRecipes = {};
 		

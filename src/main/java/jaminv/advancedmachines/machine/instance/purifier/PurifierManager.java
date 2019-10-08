@@ -21,6 +21,7 @@ public class PurifierManager {
 
 	public static void init() {
 		FileHandler handler = new FileHandlerRecipe("purifier", ModConfig.general.defaultPurifierEnergyCost, (recipe) -> {
+			if (ModConfig.doExclude("purifier", recipe.getRecipeId())) {	return;	}
 			manager.addRecipe(recipe);
 		}).setLimit(RecipeSection.INPUT, IngredientType.ITEM, 1).setLimit(RecipeSection.OUTPUT, IngredientType.ITEM, 1)
 			.setLimit(RecipeSection.SECONDARY, IngredientType.ITEM, 6);
